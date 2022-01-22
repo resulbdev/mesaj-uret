@@ -46,61 +46,60 @@ class _SevgililerGunuState extends State<SevgililerGunu> {
     return Scaffold(
       backgroundColor: Colors.greenAccent,
       body: Center(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 150,
-            ),
-            Text("Sevgililer Günü",
-                style: GoogleFonts.lilitaOne(
-                  textStyle: const TextStyle(
-                    fontSize: 45,
-                  ),
-                )),
-            Text("Mesajı",
-                style: GoogleFonts.lilitaOne(
-                  textStyle: const TextStyle(
-                    fontSize: 45,
-                  ),
-                )),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.red,
-                onPrimary: Colors.white,
-                shadowColor: Colors.red,
-                elevation: 3,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 150,
               ),
-              child: const Text(
-                "ÜRET",
-                style: TextStyle(
-                  fontSize: 30,
+              Center(
+                child: Text("Sevgililer Günü \nMesajı",
+                    style: GoogleFonts.lilitaOne(
+                      textStyle: const TextStyle(
+                        fontSize: 45,
+                      ),
+                    )),
+              ),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  onPrimary: Colors.white,
+                  shadowColor: Colors.red,
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32.0)),
+                ),
+                child: const Text(
+                  "ÜRET",
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
+                ),
+                onPressed: sevgiliMesajYenile,
+              ),
+              // const Spacer(),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                height: 300,
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 5.0, horizontal: 20.0),
+                  child: SelectableText(
+                    sevgiliSozler[sevgiliMesajNo],
+                    style: const TextStyle(
+                      fontSize: 25,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
-              onPressed: sevgiliMesajYenile,
-            ),
-            const Spacer(),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              height: 300,
-              width: double.infinity,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-                child: SelectableText(
-                  sevgiliSozler[sevgiliMesajNo],
-                  style: const TextStyle(
-                    fontSize: 25,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 70,
-            )
-          ],
+              // const SizedBox(
+              //   height: 70,
+              // )
+            ],
+          ),
         ),
       ),
     );
